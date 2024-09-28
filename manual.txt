@@ -1,0 +1,89 @@
+Claro, a continuación te muestro un ejemplo de cómo podrías crear una página web con HTML, CSS y JavaScript donde solo se usen letras o arte ASCII, y el texto aparezca gradualmente como si lo escribiera una máquina de escribir. La fuente usada será una que se asemeje a la de las máquinas de escribir, como "Courier New".
+
+### HTML (index.html)
+```html
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Máquina de Escribir ASCII Art</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <pre id="ascii-art">
+           _____                    _____                    _____                _____                    _____                    _____          
+          /\    \                  /\    \                  /\    \              /\    \                  /\    \                  /\    \         
+         /::\    \                /::\    \                /::\    \            /::\    \                /::\    \                /::\    \        
+        /::::\    \              /::::\    \              /::::\    \           \:::\    \              /::::\    \              /::::\    \       
+       /::::::\    \            /::::::\    \            /::::::\    \           \:::\    \            /::::::\    \            /::::::\    \      
+      /:::/\:::\    \          /:::/\:::\    \          /:::/\:::\    \           \:::\    \          /:::/\:::\    \          /:::/\:::\    \     
+     /:::/__\:::\    \        /:::/  \:::\    \        /:::/__\:::\    \           \:::\    \        /:::/__\:::\    \        /:::/__\:::\    \    
+    /::::\   \:::\    \      /:::/    \:::\    \      /::::\   \:::\    \          /::::\    \      /::::\   \:::\    \      /::::\   \:::\    \   
+   /::::::\   \:::\    \    /:::/    / \:::\    \    /::::::\   \:::\    \        /::::::\    \    /::::::\   \:::\    \    /::::::\   \:::\    \  
+  /:::/\:::\   \:::\ ___\  /:::/    /   \:::\ ___\  /:::/\:::\   \:::\    \      /:::/\:::\    \  /:::/\:::\   \:::\____\  /:::/\:::\   \:::\____\ 
+ /:::/__\:::\   \:::|    |/:::/____/     \:::|    |/:::/__\:::\   \:::\____\    /:::/  \:::\____\/:::/  \:::\   \:::|    |/:::/__\:::\   \:::|    |
+ \:::\   \:::\  /:::|____|\:::\    \     /:::|____|\:::\   \:::\   \::/    /   /:::/    \::/    /\::/    \:::\  /:::|____|\:::\   \:::\  /:::|____|
+  \:::\   \:::\/:::/    /  \:::\    \   /:::/    /  \:::\   \:::\   \/____/   /:::/    / \/____/  \/____/ \:::\/:::/    /  \:::\   \:::\/:::/    / 
+   \:::\   \::::::/    /    \:::\    \ /:::/    /    \:::\   \:::\    \      /:::/    /                    \::::::/    /    \:::\   \::::::/    /  
+    \:::\   \::::/    /      \:::\    /:::/    /      \:::\   \:::\____\    /:::/    /                      \::::/    /      \:::\   \::::/    /   
+     \:::\  /:::/    /        \:::\  /:::/    /        \:::\   \::/    /    \::/    /                       /:::/    /        \:::\  /:::/    /    
+      \:::\/:::/    /          \:::\/:::/    /          \:::\   \/____/      \/____/                       /:::/    /          \:::\/:::/    /     
+       \::::::/    /            \::::::/    /            \:::\    \                                       /:::/    /            \::::::/    /      
+        \::::/    /              \::::/    /              \:::\____\                                     /:::/    /              \::::/    /       
+         \::/    /                \::/____/                \::/    /                                     \::/    /                \::/____/        
+          \/____/                  ~~                       \/____/                                       \/____/                                  
+
+        </pre>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
+```
+
+### CSS (styles.css)
+```css
+body {
+    background-color: #000;
+    color: #0f0;
+    font-family: "Courier New", Courier, monospace;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+}
+
+.container {
+    white-space: pre;
+    text-align: center;
+}
+```
+
+### JavaScript (script.js)
+```javascript
+document.addEventListener('DOMContentLoaded', function() {
+    const asciiArt = document.getElementById('ascii-art');
+    const text = asciiArt.textContent;
+    asciiArt.textContent = '';
+    
+    let i = 0;
+    function typeWriter() {
+        if (i < text.length) {
+            asciiArt.textContent += text.charAt(i);
+            i++;
+            setTimeout(typeWriter, 50);
+        }
+    }
+
+    typeWriter();
+});
+```
+
+### Instrucciones:
+1. Crea tres archivos en tu directorio de proyecto: `index.html`, `styles.css` y `script.js`.
+2. Copia y pega el código correspondiente en cada uno de los archivos.
+3. Abre `index.html` en tu navegador para ver la página en acción.
+
+Este ejemplo muestra una página con un arte ASCII simple que aparece como si fuera escrito por una máquina de escribir. Puedes ajustar el contenido de `<pre>` para mostrar el arte ASCII o el texto que prefieras. El intervalo de tiempo en `setTimeout(typeWriter, 50);` se puede ajustar para cambiar la velocidad de escritura.
